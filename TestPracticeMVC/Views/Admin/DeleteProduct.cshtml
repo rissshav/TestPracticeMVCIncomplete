@@ -1,0 +1,56 @@
+﻿@model TestPracticeMVC.Models.Products
+
+@{
+    ViewBag.Title = "DeleteProduct";
+}
+
+<h2>DeleteProduct</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Products</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Image)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+
+        <div class="form-actions no-color">
+            @Html.ActionLink("Delete", "Delete", new { id = Model.ProductId }) |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

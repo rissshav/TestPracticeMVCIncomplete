@@ -1,0 +1,31 @@
+﻿@model IEnumerable<TestPracticeMVC.Models.Products>
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <img class="card-img-top" src="@Url.Content(item.Image)" alt="Product Image" />
+                <div class="card-body">
+                    <h5 class="card-title" id="pname">@Html.DisplayFor(ModelItem => item.Name)</h5>
+                    <p class="card-text">@Html.DisplayFor(ModelItem => item.Price)</p>
+                    <p class="card-text">@Html.DisplayFor(ModelItem => item.Description)</p>
+                    <div class="d-flex justify-content-between">
+                        <div class="btn-group">
+                            @Html.ActionLink("Add to Cart", "AddTocart", "Salesman", new { @class = "btn btn-primary" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<script>
+    function AddToCart() {
+        var name = document.getElementById("pname").value;
+        console.log(name)
+    }
+</script>
